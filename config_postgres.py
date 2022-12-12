@@ -1,6 +1,7 @@
 from configparser import ConfigParser
 
-def config_parser(filename='database.ini', section='postgresql'):
+
+def config_postgres(filename='database.ini', section='postgresql'):
     parser = ConfigParser()
     parser.read(filename)
 
@@ -12,3 +13,5 @@ def config_parser(filename='database.ini', section='postgresql'):
             db[param[0]] = param[1]
     else:
         raise Exception('Section {} not found in the {} filename'.format(section, filename))
+
+    return db
